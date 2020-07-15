@@ -123,7 +123,8 @@ s! {
     // file: arch/x86_64/bits/signal.h#L80-L84
     pub struct mcontext_t {
         pub gregs: [greg_t; 23],
-        __private: [u64; 9],
+        pub fpregs: *mut ::c_void,
+        __private: [u64; 8],
     }
 
     pub struct ipc_perm {
